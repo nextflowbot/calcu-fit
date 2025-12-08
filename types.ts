@@ -33,19 +33,18 @@ export interface User {
   records: UserRecords;
 }
 
-export enum Screen {
-  LOGIN = 'LOGIN',
-  SIGNUP = 'SIGNUP',
-  HOME = 'HOME',
-  TRACKER = 'TRACKER',
-  RECIPES = 'RECIPES',
-  PROFILE = 'PROFILE',
-}
-
 export interface Recipe {
   id: string;
   title: string;
   kcal: number;
   tag: string;
   image: string;
+}
+
+export enum Screen {
+  LOGIN = 'LOGIN',
+  SIGNUP = 'SIGNUP',
+  HOME = 'HOME',
+  TRACKER = 'TRACKER',
+  PROFILE = 'PROFILE',
 }

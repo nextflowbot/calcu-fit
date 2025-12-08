@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../App';
 import { Screen } from '../types';
-import { Home, PlusCircle, Utensils, User as UserIcon } from 'lucide-react';
+import { Home, PlusCircle, User as UserIcon } from 'lucide-react';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { setScreen, screen } = useApp();
@@ -9,7 +9,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const navItems = [
     { id: Screen.HOME, icon: Home, label: 'Início' },
     { id: Screen.TRACKER, icon: PlusCircle, label: 'Registrar' },
-    { id: Screen.RECIPES, icon: Utensils, label: 'Receitas' },
     { id: Screen.PROFILE, icon: UserIcon, label: 'Perfil' },
   ];
 
@@ -21,7 +20,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 py-3 px-6 flex justify-between items-center z-50 pb-safe">
+      <nav className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 py-3 px-6 flex justify-around items-center z-50 pb-safe">
         {navItems.map((item) => {
           const isActive = screen === item.id;
           return (
