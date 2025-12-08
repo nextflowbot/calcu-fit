@@ -1,0 +1,7 @@
+{
+  "name": "CalcuFit Web ",
+  "description": "A complete health tracking application featuring calorie counting, hydration tracking, recipe search, and customizable goals.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
