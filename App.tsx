@@ -5,6 +5,7 @@ import { Login } from './components/Login';
 import { SignUp } from './components/SignUp';
 import { Home } from './components/Home';
 import { Tracker } from './components/Tracker';
+import { Recipes } from './components/Recipes';
 import { Profile } from './components/Profile';
 import { Layout } from './components/Layout';
 
@@ -63,6 +64,7 @@ export default function App() {
           <Layout>
             {screen === Screen.HOME && <Home />}
             {screen === Screen.TRACKER && <Tracker />}
+            {screen === Screen.RECIPES && <Recipes />}
             {screen === Screen.PROFILE && <Profile />}
           </Layout>
         )}

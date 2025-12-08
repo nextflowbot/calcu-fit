@@ -46,5 +46,6 @@ export enum Screen {
   SIGNUP = 'SIGNUP',
   HOME = 'HOME',
   TRACKER = 'TRACKER',
+  RECIPES = 'RECIPES',
   PROFILE = 'PROFILE',
 }
