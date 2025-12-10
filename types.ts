@@ -33,19 +33,13 @@ export interface User {
   records: UserRecords;
 }
 
-export interface Recipe {
-  id: string;
-  title: string;
-  kcal: number;
-  tag: string;
-  image: string;
-}
+// Recipe interface removed as feature is replaced
 
 export enum Screen {
   LOGIN = 'LOGIN',
   SIGNUP = 'SIGNUP',
   HOME = 'HOME',
   TRACKER = 'TRACKER',
-  RECIPES = 'RECIPES',
+  REPORTS = 'REPORTS', // Replaces RECIPES
   PROFILE = 'PROFILE',
 }

@@ -10,7 +10,7 @@ export const Tracker: React.FC = () => {
   
   // Food State
   const [foodName, setFoodName] = useState('');
-  const [kcal, setKcal] = useState('');
+  const [kcal, asetKcal] = useState('');
   const [carbs, setCarbs] = useState('');
   const [prot, setProt] = useState('');
   const [fat, setFat] = useState('');

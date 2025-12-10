@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Search, Plus } from 'lucide-react';
-import { Recipe } from '../types';
+
+// Recipe interface defined locally as it was removed from global types
+interface Recipe {
+  id: string;
+  title: string;
+  kcal: number;
+  tag: string;
+  image: string;
+}
 
 const INITIAL_CATEGORIES = ['Todas', 'Laticínios', 'Fibras', 'Proteína Alta', 'Frutas', 'Peixe'];
 

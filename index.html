@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>CalcuFit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,6 +29,11 @@
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
       }
+      
+      /* Prevent bounce effect on mobile */
+      body {
+        overscroll-behavior-y: none;
+      }
     </style>
   <script type="importmap">
 {
@@ -44,7 +49,7 @@
 }
 </script>
 </head>
-  <body class="bg-background text-slate-800">
+  <body class="bg-background text-slate-800 overflow-hidden">
     <div id="root"></div>
   </body>
 </html>

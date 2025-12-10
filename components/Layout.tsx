@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../App';
 import { Screen } from '../types';
-import { Home, PlusCircle, User as UserIcon, BookOpen, Clock } from 'lucide-react';
+import { Home, PlusCircle, User as UserIcon, BarChart3, Clock } from 'lucide-react';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { setScreen, screen } = useApp();
@@ -35,15 +35,17 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const navItems = [
     { id: Screen.HOME, icon: Home, label: 'Início' },
     { id: Screen.TRACKER, icon: PlusCircle, label: 'Registrar' },
-    { id: Screen.RECIPES, icon: BookOpen, label: 'Receitas' },
+    { id: Screen.REPORTS, icon: BarChart3, label: 'Evolução' },
     { id: Screen.PROFILE, icon: UserIcon, label: 'Perfil' },
   ];
 
   return (
-    <div className="flex flex-col h-screen max-w-md mx-auto bg-background shadow-2xl overflow-hidden relative">
+    // Main Container: 100dvh ensures full height on mobile browsers.
+    // Flex column structure allows the Nav to sit naturally at the bottom.
+    <div className="flex flex-col h-[100dvh] w-full max-w-md mx-auto bg-background shadow-2xl overflow-hidden relative">
       
-      {/* Date & Time Header */}
-      <header className="bg-white px-6 py-4 border-b border-gray-100 flex justify-between items-center sticky top-0 z-20 shadow-sm">
+      {/* Header - Fixed at top via flex-none */}
+      <header className="flex-none bg-white px-6 py-4 border-b border-gray-100 flex justify-between items-center z-20 shadow-sm">
         <div className="flex flex-col">
           <span className="text-[10px] font-bold text-primary uppercase tracking-wider mb-0.5">
             {dateString.split(',')[0]}
@@ -64,20 +66,21 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </header>
 
-      {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto no-scrollbar pb-24">
+      {/* Main Content - Takes remaining space and scrolls internally */}
+      <main className="flex-1 overflow-y-auto no-scrollbar scroll-smooth bg-background p-0">
         {children}
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 py-3 px-6 flex justify-around items-center z-50 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+      {/* Bottom Navigation - Fixed at bottom via flex-none */}
+      {/* Removing absolute positioning ensures it's always in the layout flow at the bottom */}
+      <nav className="flex-none bg-white border-t border-gray-100 py-3 px-6 flex justify-around items-center z-50 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
         {navItems.map((item) => {
           const isActive = screen === item.id;
           return (
             <button
               key={item.id}
               onClick={() => setScreen(item.id)}
-              className={`flex flex-col items-center gap-1.5 transition-all duration-300 relative group ${
+              className={`flex flex-col items-center gap-1.5 transition-all duration-300 relative group cursor-pointer select-none ${
                 isActive ? 'text-primary translate-y-[-2px]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
